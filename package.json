@@ -1,0 +1,61 @@
+{
+  "name": "hack-18",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build:server": "babel ./app/server -d build/server",
+    "build:watch:server": "babel ./app/server -d build/server --watch",
+    "build:client": "webpack --config ./webpack.config.js/",
+    "build:watch:client": "webpack --config ./webpack.config.js/ --watch",
+    "build:prod": "npm run build:server && npm run build:client",
+    "start": "npm run build:prod && NODE_ENV=production node ./build/server/index.js",
+    "start:dev": "npm-run-all -p build:watch:server build:watch:client start:dev:client",
+    "start:dev:client": "nodemon ./build/server/index.js",
+    "start:webpack-dev-server": "webpack-dev-server",
+    "test": "jest --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/build/"
+    ],
+    "modulePathIgnorePatterns": [
+      "/build/"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    }
+  },
+  "dependencies": {
+    "express": "^4.15.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.9",
+    "enzyme": "^3.3.0",
+    "enzyme-to-json": "^3.3.0",
+    "html-webpack-plugin": "^2.30.1",
+    "jest": "^22.1.2",
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^4.1.2",
+    "parallelshell": "^3.0.1",
+    "style-loader": "^0.19.1",
+    "webpack": "^3.4.1",
+    "webpack-dev-server": "^2.6.1"
+  }
+}
