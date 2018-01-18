@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Icon, Item, Label } from 'semantic-ui-react'
 import List from './List';
-import { markAsRead, receiveMessage } from 'app/components/state';
+import { markAsRead, receiveMessage } from './state';
 
 class ListContainer extends React.PureComponent {
   constructor() {
