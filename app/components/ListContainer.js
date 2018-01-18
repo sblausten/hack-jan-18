@@ -1,6 +1,6 @@
 import React from 'react'
-import { Button, Icon, Item, Label } from 'semantic-ui-react'
 import List from './List';
+import mockData from '../mockData';
 import { markAsRead, receiveMessage } from './state';
 import createClient from './socket-client';
 
@@ -24,6 +24,7 @@ class ListContainer extends React.PureComponent {
     return <List
       markAsRead={mid => {}}
       sendMessage={this.client.sendMessage}
+      messages={mockData}
     />
   }
 
