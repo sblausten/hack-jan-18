@@ -8,10 +8,9 @@ function List(props) {
     return (
         <div>
           {messages.map(m => {
-            return <Story story={m} sendMessage={sendMessage}/>
+            return <Story story={m} key={m.mid} sendMessage={sendMessage}/>
           })}
-          
-</div >
+    </div>
     )
 }
 

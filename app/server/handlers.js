@@ -1,4 +1,4 @@
-import * as request from "request";
+import request from "request";
 
 const PAGE_ACCESS_TOKEN = 'pEAACZCH66FWwUBAPcWsLi2nIIYrPsBZBwbZCfA1sGsidZBZCxS5NQtj74w0MHLzWoIvq9UjPywtVBL7TyP4K6xqTrMHJhcDx5pCn98ynuRHB9Yd3wpVcqOZAm0gn0MHFUmwx5t8oY7HnhK3tK3fgQs5zXR83wJ9JeL6FybOoinSgwZDZD';
 
@@ -16,7 +16,7 @@ export function handleMessage(sender_psid, received_message) {
         response = {
             "attachment": {
                 "type": "template",
-                "payload": {
+                "payload"   : {
                     "template_type": "generic",
                     "elements": [{
                         "title": "Is this the right picture?",

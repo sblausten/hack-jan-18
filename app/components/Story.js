@@ -5,7 +5,7 @@ function Story(props) {
 
   const { story, sendMessage } = props;
 
-    return (    
+    return (
         <div className='story'>
             <div className='story-overview'>
                 <span>Story Suggestion:</span> {story.message.text}
@@ -13,7 +13,7 @@ function Story(props) {
             </div >
             <Messages sendMessage={sendMessage}/>
         </div>
-            
+
     )
 }
 

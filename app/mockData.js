@@ -6,7 +6,7 @@ export default [
         },
         message: {
             mid: "0123",
-            text: "They have close my bus stop on something Road in Hull."
+            text: "They have closed my bus stop on something Road in Hull."
         },
         timestamp: "0123",
         read: false
