@@ -1,9 +1,10 @@
 import React from 'react';
 import ListContainer from './ListContainer';
 
-export default function App() {
+
+export default function App({client}) {
     return (<div>
-        <h2>HACK 18!</h2>
-        <ListContainer />
+        <h2>PEOPLE WIRE</h2>
+        <ListContainer client={client} />
     </div>)
 };

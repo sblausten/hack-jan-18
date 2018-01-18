@@ -1,11 +1,17 @@
 
 
+let onMessage;
+
 export default function create() {
-    const socket = io.connect('http://localhost');
+    console.log('create');
+    const socket = io('http://localhost:8080');
+    socket.on('fo', (data) => {
+        onMessage(data)
+    });
+
     return {
         onMessage: (callback) => {
-            socket.on('fo', callback);
-
+            onMessage = callback;
         },
         sendMessage: (message) => {
             socket.emit('ft', message);

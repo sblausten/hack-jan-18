@@ -2,10 +2,12 @@ import path from 'path';
 import express from 'express';
 import bodyParser from 'body-parser';
 import {handleMessage, handlePostback} from "./handlers";
+var app = require('express')();
+var server = require('http').Server(app);
+import getIO from './io';
 
 'use strict';
-const app = express().use(bodyParser.json());
-
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 const VERIFY_TOKEN = "people-wire";
 
@@ -26,7 +28,11 @@ app.post('/fb-hook', (req, res) => {
     if (body.object === 'page') {
         body.entry.forEach(function(entry) {
             let webhook_event = entry.messaging[0];
-            console.log(webhook_event);
+            console.log('about to emit',webhook_event);
+            getIO().on('connect', (socket) => {
+                console.log('emitting',webhook_event);
+                socket.broadcast.emit('fo', webhook_event);
+            });
 
             let sender_psid = webhook_event.sender.id;
             console.log('Sender ID: ' + sender_psid);
@@ -63,4 +69,4 @@ app.get('/fb-hook', (req, res) => {
     }
 });
 
-export default app;
+export default server;

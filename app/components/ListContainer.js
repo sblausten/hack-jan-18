@@ -1,27 +1,30 @@
 import React from 'react'
-import { Button, Icon, Item, Label } from 'semantic-ui-react'
 import List from './List';
+import mockData from '../mockData';
 import { markAsRead, receiveMessage } from './state';
-import createClient from './socket-client';
 
 class ListContainer extends React.PureComponent {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       messages: [],
     };
 
-    this.client = createClient();
-    this.client.onMessage(message => this.setState(receiveMessage(message)));
+    props.client.onMessage(message => {
+      console.log('recieved',message);
+      this.setState(receiveMessage(message));
+    });
+    // this.client.sendMessage({text: 'hello', recipient: '' })
   }
 
   render() {
     return <List
       markAsRead={mid => {}}
-      sendMessage={this.client.sendMessage}
+      sendMessage={this.props.client.sendMessage}
+      messages={this.state.messages}
     />
   }
 
 }
 
-export default List;
+export default ListContainer;

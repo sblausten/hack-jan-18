@@ -1,13 +1,20 @@
-import app from './app';
-var socketio = require('socket.io');
+import server from './app';
+import { callSendAPI } from './handlers';
+import getIO from './io';
+
 
 const port = process.env.PORT || 8080;
 
-const server = app.listen(port);
+server.listen(port);
 
-const io  = socketio(server);
+
+let io = getIO();
+io.on('connection',(socket)=>{
+    console.log('connected - now puch to client')
+});
 
 io.on('connection',(socket)=>{
     console.log('connected - now puch to client')
-})
+    socket.on('fo', ({text, recipient}) => callSendAPI(recipient, text));
+});
 console.log(`Listening at http://localhost:${port}`);
