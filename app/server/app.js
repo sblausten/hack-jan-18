@@ -30,6 +30,16 @@ const
     body_parser = require('body-parser'),
     app = express().use(body_parser.json()); // creates express http server
 
+import path from 'path';
+const publicPath = express.static(path.join(__dirname, '../'));
+const indexPath = path.join(__dirname, '../index.html');
+
+app.use(publicPath);
+
+app.get('/', (req, res) => {
+    res.sendFile(indexPath);
+})
+
 app.post('/fb-hook', (req, res) => {
 
     let body = req.body;
