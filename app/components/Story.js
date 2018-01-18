@@ -1,4 +1,5 @@
 import React from 'react'
+import Messages from './Messages';
 
 function Story(props) {
 
@@ -6,10 +7,10 @@ function Story(props) {
 
     return (    
         <div className='story'>
-            <button onClick>Mark as Read</button>
-            <ul className='story-overview'>
-                <span>Topic:</span> {story.message.text}
-            </ul >
+            <div className='story-overview'>
+                <span>Story Suggestion:</span> {story.message.text}
+            </div >
+            <Messages />
         </div>
             
     )
