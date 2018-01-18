@@ -16,3 +16,12 @@
 * `npm run build:client` - runs webpack to build bundle
 * `npm run build:prod` - builds both client and server
 * `npm run start` - in parallel shells it calls `build:prod` and then runs the app 
+
+### run locally
+
+```bash
+brew cask install ngrok
+ngrok http 8080
+```
+
+Then click edit on (https://developers.facebook.com/apps/210142792866565/webhooks/)[https://developers.facebook.com/apps/210142792866565/webhooks/] and update callback url
