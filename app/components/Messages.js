@@ -8,15 +8,16 @@ const message = {
 }
 
 function Messages(props) {
-    const { sendMessage } = props;
+    const { sendMessage, sender } = props;
+    const { id } = sender;
 
     return (    
         <div className='Messages'>
             <span>Contact Source: </span>
-            <button className='btn btn-primary read' onClick={() => sendMessage({ text: message.read })} >Read</button>
-            <button className=' btn btn-primary investigating' onClick={() => sendMessage({ text: message.investigating })}>Investigating</button>
-            <button className=' btn btn-primary writing' onClick={() => sendMessage({ text: message.writing })}>Editing</button>
-            <button className=' btn btn-primary published' onClick={() => sendMessage({ text: message.published })}>Published</button>
+            <button className='btn btn-primary read' onClick={() => sendMessage({ sid: id, text: message.read })} >Read</button>
+            <button className=' btn btn-primary investigating' onClick={() => sendMessage({ sid: id, text: message.investigating })}>Investigating</button>
+            <button className=' btn btn-primary writing' onClick={() => sendMessage({ sid: id, text: message.writing })}>Editing</button>
+            <button className=' btn btn-primary published' onClick={() => sendMessage({ sid: id, text: message.published })}>Published</button>
             <input type='text'/><button  className='btn btn-dark'type='submit'>Send Custom Msg</button>  
         </div>
             

@@ -11,7 +11,7 @@ function Story(props) {
                 <span>Story Suggestion:</span> {story.message.text}
                 <div><span>Source: </span>{story.sender.fullName}</div>
             </div >
-            <Messages sendMessage={sendMessage}/>
+            <Messages sendMessage={sendMessage} sender={story.sender} />
         </div>
 
     )
