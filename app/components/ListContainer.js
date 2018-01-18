@@ -1,18 +1,18 @@
 import React from 'react'
-import { Button, Icon, Item, Label } from 'semantic-ui-react'
 import List from './List';
+import mockData from '../mockData';
 
 class ListContainer extends React.PureComponent {
   constructor() {
-    super()
+    super();
     this.state = {
     };
   }
 
   render() {
-    return <List />
+    return <List messages={mockData}/>
   }
 
 }
 
-export default List;
+export default ListContainer;
