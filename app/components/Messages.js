@@ -13,10 +13,10 @@ function Messages(props) {
     return (    
         <div className='Messages'>
             <span>Contact Source: </span>
-            <button className='btn btn-primary read' onClick={sendMessage({ text: message.read })} >Read</button>
-            <button className=' btn btn-primary investigating' onClick={sendMessage({ text: message.investigating })}>Investigating</button>
-            <button className=' btn btn-primary writing' onClick={sendMessage({ text: message.writing })}>Editing</button>
-            <button className=' btn btn-primary published' onClick={sendMessage({ text: message.published })}>Published</button>
+            <button className='btn btn-primary read' onClick={() => sendMessage({ text: message.read })} >Read</button>
+            <button className=' btn btn-primary investigating' onClick={() => sendMessage({ text: message.investigating })}>Investigating</button>
+            <button className=' btn btn-primary writing' onClick={() => sendMessage({ text: message.writing })}>Editing</button>
+            <button className=' btn btn-primary published' onClick={() => sendMessage({ text: message.published })}>Published</button>
             <input type='text'/><button  className='btn btn-dark'type='submit'>Send Custom Msg</button>  
         </div>
             
