@@ -5,14 +5,14 @@ function Story(props) {
 
   const { story } = props;
 
-    return (    
+    return (
         <div className='story'>
             <div className='story-overview'>
-                <span>Story Suggestion:</span> {story.message.text}
+                <span>Story Suggestion:</span>{story.text}
             </div >
             <Messages />
         </div>
-            
+
     )
 }
 
