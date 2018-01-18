@@ -3,12 +3,12 @@ import Story from './Story'
 
 function List(props) {
   console.log(props.messages)
-  const { messages } = props;
-  console.log('message', messages)
+  const { messages, sendMessage } = props;
+  console.log('message', sendMessage)
     return (
         <div>
           {messages.map(m => {
-            return <Story story={m} />
+            return <Story story={m} sendMessage={sendMessage}/>
           })}
           
 </div >

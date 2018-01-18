@@ -8,6 +8,6 @@ const server = app.listen(port);
 const io  = socketio(server);
 
 io.on('connection',(socket)=>{
-    console.log('connected - now puch to client')
+    console.log('connected - now push to client')
 })
 console.log(`Listening at http://localhost:${port}`);
