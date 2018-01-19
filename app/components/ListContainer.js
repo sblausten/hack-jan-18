@@ -21,7 +21,7 @@ class ListContainer extends React.PureComponent {
     return <List
       markAsRead={mid => {}}
       sendMessage={this.props.client.sendMessage}
-      messages={this.state.messages}
+      messages={mockData}
     />
   }
 

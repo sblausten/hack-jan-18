@@ -6,6 +6,7 @@ export default function create() {
     console.log('create');
     const socket = io('http://localhost:8080');
     socket.on('fo', (data) => {
+        console.log(data)
         onMessage(data)
     });
 
