@@ -9,33 +9,21 @@ export function handleMessage(sender_psid, received_message) {
         // Create the payload for a basic text message, which
         // will be added to the body of our request to the Send API
         response = {
-            "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
-        }
-    } else if (received_message.attachments) {
-        let attachment_url = received_message.attachments[0].payload.url;
-        response = {
-            "attachment": {
-                "type": "template",
-                "payload"   : {
-                    "template_type": "generic",
-                    "elements": [{
-                        "title": "Is this the right picture?",
-                        "subtitle": "Tap a button to answer.",
-                        "image_url": attachment_url,
-                        "buttons": [
-                            {
-                                "type": "postback",
-                                "title": "Yes!",
-                                "payload": "yes",
-                            },
-                            {
-                                "type": "postback",
-                                "title": "No!",
-                                "payload": "no",
-                            }
-                        ],
-                    }]
-                }
+            "payload": {
+                "template_type":"button",
+                "text":"Thanks for your contribution! Want to know if we decide to use your story an any way?",
+                "buttons":[
+                    {
+                        "type": "postback",
+                        "title": "Yes!",
+                        "payload": "yes",
+                    },
+                    {
+                        "type": "postback",
+                        "title": "No!",
+                        "payload": "no",
+                    }
+                ]
             }
         }
     }
@@ -49,9 +37,9 @@ export function handlePostback(sender_psid, received_postback) {
     let payload = received_postback.payload;
 
     if (payload === 'yes') {
-        response = { "text": "Thanks!" }
+        response = { "text": "Ok great - we'll respond here as soon as we decide anything. Thanks again!" }
     } else if (payload === 'no') {
-        response = { "text": "Oops, try sending another image." }
+        response = { "text": "Ok, no worries. Thanks again for your submission!" }
     }
     callSendAPI(sender_psid, response);
 }
