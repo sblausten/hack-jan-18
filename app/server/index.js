@@ -16,5 +16,6 @@ io.on('connection',(socket)=>{
 io.on('connection',(socket)=>{
     console.log('connected - now push to client')
     socket.on('fo', ({text, recipient}) => callSendAPI(recipient, text));
+    socket.on('ft', ({sid, text}) => callSendAPI(sid, text));
 });
 console.log(`Listening at http://localhost:${port}`);
