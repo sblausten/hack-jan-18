@@ -12,7 +12,7 @@ class ListContainer extends React.PureComponent {
 
     props.client.onMessage(message => {
       console.log('recieved',message);
-      this.setState(receiveMessage(message));
+      this.setState({messages:[message,...this.state.messages]});
     });
     // this.client.sendMessage({text: 'hello', recipient: '' })
   }
@@ -21,7 +21,7 @@ class ListContainer extends React.PureComponent {
     return <List
       markAsRead={mid => {}}
       sendMessage={this.props.client.sendMessage}
-      messages={mockData}
+      messages={this.state.messages}
     />
   }
 
