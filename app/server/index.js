@@ -10,12 +10,12 @@ server.listen(port);
 
 let io = getIO();
 io.on('connection',(socket)=>{
-    console.log('connected - now puch to client')
+    console.log('connected - now push to client')
 });
 
 io.on('connection',(socket)=>{
     console.log('connected - now push to client')
     socket.on('fo', ({text, recipient}) => callSendAPI(recipient, text));
-    socket.on('ft', ({sid, text}) => callSendAPI(sid, text));
+    socket.on('ft', ({sid, text}) => callSendAPI(sid, {"text": text}));
 });
 console.log(`Listening at http://localhost:${port}`);

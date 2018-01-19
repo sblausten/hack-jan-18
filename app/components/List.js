@@ -7,6 +7,7 @@ function List(props) {
   console.log('message', sendMessage)
     return (
         <div>
+            {console.log('messages', messages)}
           {messages.map(m => {
             return <Story story={m} key={m.mid} sendMessage={sendMessage}/>
           })}

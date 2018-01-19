@@ -4,7 +4,9 @@ import ListContainer from './ListContainer';
 
 export default function App({client}) {
     return (<div>
-        <h2>PEOPLE WIRE</h2>
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#">BBC People Wire</a>
+        </nav>
         <ListContainer client={client} />
     </div>)
 };

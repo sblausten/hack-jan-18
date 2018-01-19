@@ -12,7 +12,11 @@ class ListContainer extends React.PureComponent {
 
     props.client.onMessage(message => {
       console.log('recieved',message);
-      this.setState({messages:[message,...this.state.messages]});
+      if(message.message.text){
+          this.setState({messages:[message,...this.state.messages]});
+          console.log(this.state)
+
+      }
     });
     // this.client.sendMessage({text: 'hello', recipient: '' })
   }
@@ -28,3 +32,7 @@ class ListContainer extends React.PureComponent {
 }
 
 export default ListContainer;
+
+
+
+
