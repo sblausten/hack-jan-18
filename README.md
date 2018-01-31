@@ -19,9 +19,26 @@
 
 ### run locally
 
+#### start ngrok
 ```bash
 brew cask install ngrok
 ngrok http 8080
 ```
 
 Then click edit on (https://developers.facebook.com/apps/210142792866565/webhooks/)[https://developers.facebook.com/apps/210142792866565/webhooks/] and update callback url
+
+#### start up local elasticsearch server
+```bash
+brew install elasticsearch
+elasticsearch
+```
+
+#### add an index for saving messages
+```bash
+curl -XPUT 'localhost:9200/people-wire
+```
+
+#### start node app
+```bash
+npm start
+```

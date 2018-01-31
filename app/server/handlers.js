@@ -1,11 +1,19 @@
 import request from "request";
+import {saveMessage} from "./elasticsearch";
+import {inspect} from "babel-core/lib/util";
 
-const PAGE_ACCESS_TOKEN = 'EAACZCH66FWwUBAISjpXoY63EWGigZA21xiaHPBF93TH0Y52imZB7ZCDpTrJ6zsCv9xZB4DXUSZB8397GvksqZBbfDHetNqYAevYVJUCRoxZCwlcrjWAeJXnyVnkwtVx3gMxtigFTnlSNYytmRMZAjbZCNS6j63Fi7NvZBcmWV5NeLgoIAZDZD';
+const PAGE_ACCESS_TOKEN = 'EAACZCH66FWwUBAOQmN4bZCgvuqymm1onbP6EaolJJJ6iTGxvZBzCwAWZBtRiNetZClNMSCm6UYc3pZCfAE3mw6PoZAKPZAwvnq7OnOK4KyFnft8SA2snDxZCEG3EzKVmUHz9xBwo6DvsCSOTIQZBAGdSqcZBVbc5OKRc4bBxBf0AKx0YQZDZD';
 
 export function handleMessage(sender_psid, received_message) {
     let response;
 
     if (received_message.text) {
+        console.log("\n-------------\n" +
+            "NEW MESSAGE:\n" +
+            inspect(received_message));
+
+        saveMessage(sender_psid, received_message);
+
         // Create the payload for a basic text message, which
         // will be added to the body of our request to the Send API
         response = {

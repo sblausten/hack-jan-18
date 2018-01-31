@@ -9,9 +9,6 @@ server.listen(port);
 
 
 let io = getIO();
-io.on('connection',(socket)=>{
-    console.log('connected - now push to client')
-});
 
 io.on('connection',(socket)=>{
     console.log('connected - now push to client')
